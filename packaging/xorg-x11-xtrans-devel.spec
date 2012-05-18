@@ -15,7 +15,7 @@ Description: %{summary}
 
 
 %prep
-%setup -q -n xtrans-%{version}
+%setup -q -n %{name}-%{version}
 
 
 %build
