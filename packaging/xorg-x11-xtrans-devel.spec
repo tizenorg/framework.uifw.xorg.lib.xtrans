@@ -7,6 +7,7 @@ Group:      System/Libraries
 License:    MIT/X11
 URL:        http://www.x.org
 Source0:    http://xorg.freedesktop.org/releases/individual/lib/xtrans-%{version}.tar.gz
+Source1001: packaging/xorg-x11-xtrans-devel.manifest 
 BuildRequires:  pkgconfig(xorg-macros)
 
 %description
@@ -19,6 +20,7 @@ Description: %{summary}
 
 
 %build
+cp %{SOURCE1001} .
 
 %reconfigure --disable-shared
 # Call make instruction with smp support
@@ -38,6 +40,7 @@ rm -rf %{buildroot}
 
 
 %files
+%manifest xorg-x11-xtrans-devel.manifest
 %defattr(-,root,root,-)
 %doc AUTHORS COPYING README
 %dir %{_includedir}/X11
