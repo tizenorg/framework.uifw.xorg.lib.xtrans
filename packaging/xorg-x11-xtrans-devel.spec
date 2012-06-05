@@ -6,7 +6,7 @@ Release:    1
 Group:      System/Libraries
 License:    MIT/X11
 URL:        http://www.x.org
-Source0:    http://xorg.freedesktop.org/releases/individual/lib/xtrans-%{version}.tar.gz
+Source0:    %{name}-%{version}.tar.gz
 Source1001: packaging/xorg-x11-xtrans-devel.manifest 
 BuildRequires:  pkgconfig(xorg-macros)
 
