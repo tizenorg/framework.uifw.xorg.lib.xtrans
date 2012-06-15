@@ -3,7 +3,7 @@ Name:       xorg-x11-xtrans-devel
 Summary:    X.Org X11 developmental X transport library
 Version:    1.2.6
 Release:    1
-Group:      System/Libraries
+Group:      Graphics/X Window System
 License:    MIT/X11
 URL:        http://www.x.org
 Source0:    %{name}-%{version}.tar.gz
