@@ -1,45 +1,44 @@
+# NOTE: This package contains only C source and header files and pkg-config
+# *.pc files, and does not contain any ELF binaries or DSOs, so we disable
+# debuginfo generation.
+%define debug_package %{nil}
 
-Name:       xorg-x11-xtrans-devel
-Summary:    X.Org X11 developmental X transport library
-Version:    1.2.6
-Release:    1
-Group:      System/Libraries
-License:    MIT/X11
-URL:        http://www.x.org
-Source0:    http://xorg.freedesktop.org/releases/individual/lib/xtrans-%{version}.tar.gz
+Summary: X.Org X11 developmental X transport library
+Name: xorg-x11-xtrans-devel
+Version: 1.2.7
+Release: 1
+License: MIT
+Group: System Environment/Libraries
+URL: http://www.x.org
+BuildArch: noarch
+
+Source0: %{name}-%{version}.tar.gz
+
+BuildRequires: pkgconfig
 BuildRequires:  pkgconfig(xorg-macros)
+BuildRequires: xorg-x11-xutils-dev
 
 %description
-Description: %{summary}
-
-
+X.Org X11 developmental X transport library
 
 %prep
-%setup -q -n xtrans-%{version}
-
+%setup -q
 
 %build
 
-%reconfigure --disable-shared
-# Call make instruction with smp support
-make %{?jobs:-j%jobs}
+# yes, this looks horrible, but it's to get the .pc file in datadir
+%reconfigure --libdir=%{_datadir} \
+	   --docdir=%{_docdir}/%{name}-%{version}-%{release}
+# Running 'make' not needed.
 
 %install
-rm -rf %{buildroot}
-%make_install
+make install DESTDIR=$RPM_BUILD_ROOT INSTALL="install -p"
 
-
-%clean
-rm -rf %{buildroot}
-
-
-
-
-
+%remove_docs
 
 %files
 %defattr(-,root,root,-)
-%doc AUTHORS COPYING README
+%doc AUTHORS ChangeLog COPYING README
 %dir %{_includedir}/X11
 %dir %{_includedir}/X11/Xtrans
 %{_includedir}/X11/Xtrans/Xtrans.c
@@ -50,8 +49,7 @@ rm -rf %{buildroot}
 %{_includedir}/X11/Xtrans/Xtranstli.c
 %{_includedir}/X11/Xtrans/Xtransutil.c
 %{_includedir}/X11/Xtrans/transport.c
-%{_libdir}/pkgconfig/xtrans.pc
 %{_datadir}/aclocal/xtrans.m4
-%{_docdir}/xtrans/xtrans.xml
-
-
+%{_datadir}/pkgconfig/xtrans.pc
+#%dir %{_docdir}/%{name}-%{version}-%{release}
+#%{_docdir}/%{name}-%{version}-%{release}/xtrans.xml

@@ -14,7 +14,7 @@ Xtransinclude_HEADERS = \
 aclocaldir = $(datadir)/aclocal
 aclocal_DATA = xtrans.m4
 
-pkgconfigdir = $(libdir)/pkgconfig
+pkgconfigdir = $(datadir)/pkgconfig
 pkgconfig_DATA = xtrans.pc
 
 MAINTAINERCLEANFILES = ChangeLog INSTALL
