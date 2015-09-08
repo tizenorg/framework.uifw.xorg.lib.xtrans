@@ -6,7 +6,7 @@
 Summary: X.Org X11 developmental X transport library
 Name: xorg-x11-xtrans-devel
 Version: 1.2.7
-Release: 1
+Release: 2
 License: MIT
 Group: System Environment/Libraries
 URL: http://www.x.org
