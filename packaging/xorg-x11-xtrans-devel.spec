@@ -5,8 +5,8 @@
 
 Summary: X.Org X11 developmental X transport library
 Name: xorg-x11-xtrans-devel
-Version: 1.2.7
-Release: 2
+Version: 1.3.4
+Release: 0
 License: MIT
 Group: System Environment/Libraries
 URL: http://www.x.org
@@ -38,7 +38,7 @@ make install DESTDIR=$RPM_BUILD_ROOT INSTALL="install -p"
 
 %files
 %defattr(-,root,root,-)
-%doc AUTHORS ChangeLog COPYING README
+%doc AUTHORS COPYING README
 %dir %{_includedir}/X11
 %dir %{_includedir}/X11/Xtrans
 %{_includedir}/X11/Xtrans/Xtrans.c
@@ -46,7 +46,6 @@ make install DESTDIR=$RPM_BUILD_ROOT INSTALL="install -p"
 %{_includedir}/X11/Xtrans/Xtransint.h
 %{_includedir}/X11/Xtrans/Xtranslcl.c
 %{_includedir}/X11/Xtrans/Xtranssock.c
-%{_includedir}/X11/Xtrans/Xtranstli.c
 %{_includedir}/X11/Xtrans/Xtransutil.c
 %{_includedir}/X11/Xtrans/transport.c
 %{_datadir}/aclocal/xtrans.m4
